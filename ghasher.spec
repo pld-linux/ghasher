@@ -5,22 +5,22 @@ Version:	1.1.1
 Release:	1
 License:	BSD
 Group:		X11/Applications
-Source0:	http://utelsystems.dyndns.org/code/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://utelsystems.dyndns.org/code/ghasher/%{name}-%{version}.tar.gz
 # Source0-md5:	bf75a943f60973a07dd2a51517407fa5
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://utelsystems.dyndns.org/code/ghasher/
 BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	pkgconfig
 BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ghasher is a small GUI utility that calculates md5/sha-1 and many
+ghasher is a small GUI utility that calculates MD5/SHA-1 and many
 other sums.
 
 %description -l pl
-ghasher to ma³e narzêdzie do obliczania sum md5/sha-1 i wielu innych.
+ghasher to ma³e narzêdzie do obliczania sum MD5/SHA-1 i wielu innych.
 
 %prep
 %setup -q
