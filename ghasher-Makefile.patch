@@ -1,0 +1,30 @@
+diff -urN ghasher-1.1.1.orig/Makefile ghasher-1.1.1/Makefile
+--- ghasher-1.1.1.orig/Makefile	2004-09-05 20:53:31.209278640 +0200
++++ ghasher-1.1.1/Makefile	2004-09-05 21:23:18.412582440 +0200
+@@ -2,9 +2,10 @@
+ CFLAGS +=`pkg-config gtk+-2.0 --cflags`
+ LDFLAGS =`pkg-config gtk+-2.0 --libs` -lcrypto
+ OBJECTS = gui.o util.o
+-BINDIR=/usr/bin
+-PIXMAPDIR=/usr/share/pixmaps
+-DESKTOPFILEDIR=/usr/share/applications/
++DESTDIR=
++BINDIR=${DESTDIR}/usr/bin
++PIXMAPDIR=${DESTDIR}/usr/share/pixmaps
++DESKTOPFILEDIR=${DESTDIR}/usr/share/applications/
+ 
+ ghasher: ${OBJECTS} ghasher.h 
+ 	${CC} -o ghasher ${OBJECTS} ${LDFLAGS} 
+@@ -12,9 +13,9 @@
+ .PHONY: install clean
+ 
+ install: ghasher
+-	install -c -o root ./ghasher ${BINDIR}/ghasher
+-	install -c -m 444 -o root ghasher.desktop ${DESKTOPFILEDIR}/utelsystems-ghasher.desktop
+-	install -c -m 444 -o root hash.xpm ${PIXMAPDIR}/hash.xpm
++	install -D ./ghasher ${BINDIR}/ghasher
++	install -D -m 444 ghasher.desktop ${DESKTOPFILEDIR}/ghasher.desktop
++	install -D -m 444 hash.xpm ${PIXMAPDIR}/ghasher.xpm
+ 
+ clean:
+ 	rm *.o ghasher

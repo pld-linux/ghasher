@@ -1,0 +1,21 @@
+diff -urN ghasher-1.1.1.orig/ghasher.desktop ghasher-1.1.1/ghasher.desktop
+--- ghasher-1.1.1.orig/ghasher.desktop	2004-09-05 20:53:31.000000000 +0200
++++ ghasher-1.1.1/ghasher.desktop	2004-09-05 21:34:09.000000000 +0200
+@@ -1,9 +1,13 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+-_Name=MD5 sum utility
+-_Comment=Calculate the md5 sum of a file
++Name=ghasher
++GenericName=MD5 sum utility
++GenericName[pl]=Narzędzie do obliczania sum MD5
++Comment=Calculate the md5 sum of a file
++Comment[pl]=Oblicza sumę md5 pliku
+ Exec=ghasher %F
+ Terminal=false
+ Type=Application
+-Icon=hash.xpm
+-Categories=Utility;GTK;X-Fedora;
++Icon=ghasher.xpm
++Categories=Utility;GTK;
++# vi: encoding=utf-8
