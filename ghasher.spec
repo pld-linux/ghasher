@@ -5,11 +5,11 @@ Version:	1.1.1
 Release:	1
 License:	BSD
 Group:		X11/Applications
-Source0:	http://utelsystems.dyndns.org/code/ghasher/%{name}-%{version}.tar.gz
+Source0:	http://asgaard.homelinux.org/code/ghasher/%{name}-%{version}.tar.gz
 # Source0-md5:	bf75a943f60973a07dd2a51517407fa5
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-desktop.patch
-URL:		http://utelsystems.dyndns.org/code/ghasher/
+URL:		http://asgaard.homelinux.org/code/ghasher/
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
