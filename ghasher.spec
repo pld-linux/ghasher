@@ -10,7 +10,7 @@ Source0:	http://utelsystems.dyndns.org/code/ghasher/%{name}-%{version}.tar.gz
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://utelsystems.dyndns.org/code/ghasher/
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
