@@ -1,10 +1,10 @@
-diff -urN ghasher-1.1.1.orig/Makefile ghasher-1.1.1/Makefile
---- ghasher-1.1.1.orig/Makefile	2004-09-05 20:53:31.209278640 +0200
-+++ ghasher-1.1.1/Makefile	2004-09-05 21:23:18.412582440 +0200
+diff -urN ghasher-1.2.0.new/Makefile ghasher-1.2.0/Makefile
+--- ghasher-1.2.0.new/Makefile	2005-06-17 16:55:01.000000000 +0200
++++ ghasher-1.2.0/Makefile	2005-06-17 17:13:35.000000000 +0200
 @@ -2,9 +2,10 @@
- CFLAGS +=`pkg-config gtk+-2.0 --cflags`
- LDFLAGS =`pkg-config gtk+-2.0 --libs` -lcrypto
- OBJECTS = gui.o util.o
+ CFLAGS +=`pkg-config gtk+-2.0 libglade-2.0 --cflags`
+ LDFLAGS =`pkg-config gtk+-2.0 libglade-2.0 --libs` -lcrypto -Wl,-O2
+ OBJECTS = gui.o util.o list.o verify.o
 -BINDIR=/usr/bin
 -PIXMAPDIR=/usr/share/pixmaps
 -DESKTOPFILEDIR=/usr/share/applications/
@@ -15,7 +15,7 @@ diff -urN ghasher-1.1.1.orig/Makefile ghasher-1.1.1/Makefile
  
  ghasher: ${OBJECTS} ghasher.h 
  	${CC} -o ghasher ${OBJECTS} ${LDFLAGS} 
-@@ -12,9 +13,9 @@
+@@ -23,9 +24,9 @@
  .PHONY: install clean
  
  install: ghasher
@@ -27,4 +27,4 @@ diff -urN ghasher-1.1.1.orig/Makefile ghasher-1.1.1/Makefile
 +	install -D -m 444 hash.xpm ${PIXMAPDIR}/ghasher.xpm
  
  clean:
- 	rm *.o ghasher
+ 	rm -f  *.o ghasher ghasher-glade.c text2cstring
