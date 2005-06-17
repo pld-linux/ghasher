@@ -1,16 +1,17 @@
 Summary:	MD5 sum utility
 Summary(pl):	Narzêdzie do obliczania sum MD5
 Name:		ghasher
-Version:	1.1.1
+Version:	1.2.0
 Release:	1
 License:	BSD
 Group:		X11/Applications
 Source0:	http://asgaard.homelinux.org/code/ghasher/%{name}-%{version}.tar.gz
-# Source0-md5:	bf75a943f60973a07dd2a51517407fa5
+# Source0-md5:	b0b2dc591e210bca509249c8841a0869
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://asgaard.homelinux.org/code/ghasher/
 BuildRequires:	gtk+2-devel >= 1:2.0.0
+BuildRequires:	libglade2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,7 +30,7 @@ ghasher to ma³e narzêdzie do obliczania sum MD5/SHA-1 i wielu innych.
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags} `pkg-config gtk+-2.0 --cflags`"
+	CFLAGS="%{rpmcflags} `pkg-config gtk+-2.0 libglade-2.0 --cflags`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -42,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE README
+%doc AUTHORS LICENSE NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*
 %{_desktopdir}/*
