@@ -30,6 +30,7 @@ ghasher to ma³e narzêdzie do obliczania sum MD5/SHA-1 i wielu innych.
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE `pkg-config gtk+-2.0 libglade-2.0 --cflags`"
 
 %install
