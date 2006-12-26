@@ -2,7 +2,7 @@ Summary:	MD5 sum utility
 Summary(pl):	Narzêdzie do obliczania sum MD5
 Name:		ghasher
 Version:	1.2.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Applications
 Source0:	http://asgaard.homelinux.org/code/ghasher/%{name}-%{version}.tar.gz
