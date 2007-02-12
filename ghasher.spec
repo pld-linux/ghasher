@@ -1,5 +1,5 @@
 Summary:	MD5 sum utility
-Summary(pl):	Narzêdzie do obliczania sum MD5
+Summary(pl.UTF-8):   NarzÄ™dzie do obliczania sum MD5
 Name:		ghasher
 Version:	1.2.1
 Release:	2
@@ -20,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ghasher is a small GUI utility that calculates MD5/SHA-1 and many
 other sums.
 
-%description -l pl
-ghasher to ma³e narzêdzie do obliczania sum MD5/SHA-1 i wielu innych.
+%description -l pl.UTF-8
+ghasher to maÅ‚e narzÄ™dzie do obliczania sum MD5/SHA-1 i wielu innych.
 
 %prep
 %setup -q
