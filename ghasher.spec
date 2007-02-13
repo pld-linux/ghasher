@@ -1,5 +1,5 @@
 Summary:	MD5 sum utility
-Summary(pl.UTF-8):   Narzędzie do obliczania sum MD5
+Summary(pl.UTF-8):	Narzędzie do obliczania sum MD5
 Name:		ghasher
 Version:	1.2.1
 Release:	2
