@@ -2,13 +2,15 @@ Summary:	MD5 sum utility
 Summary(pl.UTF-8):	Narzędzie do obliczania sum MD5
 Name:		ghasher
 Version:	1.2.1
-Release:	5
+Release:	6
 License:	BSD
 Group:		X11/Applications
 Source0:	http://asgaard.homelinux.org/code/ghasher/%{name}-%{version}.tar.gz
 # Source0-md5:	36edeaf03bd8827d2a96db86735532fb
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-format-security.patch
+Patch3:		%{name}-openssl-1.1.0.patch
 URL:		http://asgaard.homelinux.org/code/ghasher/
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libglade2-devel
@@ -27,6 +29,8 @@ ghasher to małe narzędzie do obliczania sum MD5/SHA-1 i wielu innych.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__make} \

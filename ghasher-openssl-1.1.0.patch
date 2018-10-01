@@ -1,0 +1,57 @@
+--- ghasher-1.2.1.orig/ghasher.h	2005-11-22 18:23:33.000000000 +0100
++++ ghasher-1.2.1/ghasher.h	2018-10-01 23:03:11.071926945 +0200
+@@ -27,7 +27,7 @@
+ 
+ struct SumContext {
+ 	struct GHApp *app;
+-	EVP_MD_CTX ctx;
++	EVP_MD_CTX *ctx;
+ 	const EVP_MD *md;
+ 	int currentfile;
+ 	struct stat statbuf;
+--- ghasher-1.2.1.orig/gui.c	2005-11-22 18:25:01.000000000 +0100
++++ ghasher-1.2.1/gui.c	2018-10-01 23:11:24.751262326 +0200
+@@ -63,14 +63,16 @@
+ 
+ 	if (s_ctx->allok) {
+ #if OPENSSL_VERSION_NUMBER >= 0x00907000L
+-		EVP_DigestFinal(&s_ctx->ctx, b, &md_len);
++		EVP_DigestFinal(s_ctx->ctx, b, &md_len);
+ #endif
+ 		hex_dump(b, md_len, b_hex, md_len * 2 + 1);
+ 		set_hashfield(GTK_TREE_VIEW(s_ctx->app->listview), b_hex, g_ptr_array_index(s_ctx->app->files, s_ctx->app->currentfile - 1));
+ 
+ 	}
+-#if OPENSSL_VERSION_NUMBER >= 0x00907000L
+-	EVP_MD_CTX_cleanup(&s_ctx->ctx);
++#if OPENSSL_VERSION_NUMBER < 0x10100005L
++	EVP_MD_CTX_destroy(s_ctx->ctx);
++#else
++	EVP_MD_CTX_free(s_ctx->ctx);
+ #endif
+ 	g_free(s_ctx);
+ }
+@@ -102,8 +104,12 @@
+ 		return NULL;
+ 
+ 	}
+-
+-	EVP_DigestInit(&s_ctx->ctx, s_ctx->md);
++#if OPENSSL_VERSION_NUMBER < 0x10100005L
++	s_ctx->ctx = EVP_MD_CTX_create();
++#else
++	s_ctx->ctx = EVP_MD_CTX_new();
++#endif
++	EVP_DigestInit(s_ctx->ctx, s_ctx->md);
+ 	s_ctx->currentfile = open(filename, O_RDONLY);
+ 	if (s_ctx->currentfile < 0) {
+ 		gchar *error;
+@@ -160,7 +166,7 @@
+ 
+ 		ret = read(s_ctx->currentfile, buffer, s_ctx->statbuf.st_blksize * BLOCKSZ);
+ 		if (ret > 0) {
+-			EVP_DigestUpdate(&s_ctx->ctx, buffer, (unsigned long) ret);
++			EVP_DigestUpdate(s_ctx->ctx, buffer, (unsigned long) ret);
+ 			s_ctx->read_acc += (off_t) ret;
+ 		} else if (ret == 0) {
+ 			s_ctx->allok = TRUE;

@@ -1,0 +1,11 @@
+--- ghasher-1.2.1.orig/util.c	2005-11-22 18:04:54.000000000 +0100
++++ ghasher-1.2.1/util.c	2018-10-01 23:01:20.506110007 +0200
+@@ -15,7 +15,7 @@
+ 	va_start(args, message);
+ 	res = g_strdup_vprintf(message, args);
+ 	va_end(args);
+-	dialog = gtk_message_dialog_new(GTK_WINDOW(mainWindow), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, res);
++	dialog = gtk_message_dialog_new(GTK_WINDOW(mainWindow), GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", res);
+ 	g_free(res);
+ 	gtk_window_set_resizable(GTK_WINDOW(dialog), FALSE);
+ 	gtk_dialog_run(GTK_DIALOG(dialog));
