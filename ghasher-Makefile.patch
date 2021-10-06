@@ -1,7 +1,7 @@
-diff -urN ghasher-1.2.0.new/Makefile ghasher-1.2.0/Makefile
---- ghasher-1.2.0.new/Makefile	2005-06-17 16:55:01.000000000 +0200
-+++ ghasher-1.2.0/Makefile	2005-06-17 17:13:35.000000000 +0200
-@@ -2,9 +2,10 @@
+diff -urNp -x '*.orig' ghasher-1.2.1.org/Makefile ghasher-1.2.1/Makefile
+--- ghasher-1.2.1.org/Makefile	2005-11-22 18:24:41.000000000 +0100
++++ ghasher-1.2.1/Makefile	2021-10-07 00:05:38.142266834 +0200
+@@ -2,9 +2,10 @@ CFLAGS = -Wall  -ggdb -D_FILE_OFFSET_BIT
  CFLAGS +=`pkg-config gtk+-2.0 libglade-2.0 --cflags`
  LDFLAGS =`pkg-config gtk+-2.0 libglade-2.0 --libs` -lcrypto -Wl,-O2
  OBJECTS = gui.o util.o list.o verify.o
@@ -13,9 +13,9 @@ diff -urN ghasher-1.2.0.new/Makefile ghasher-1.2.0/Makefile
 +PIXMAPDIR=${DESTDIR}/usr/share/pixmaps
 +DESKTOPFILEDIR=${DESTDIR}/usr/share/applications/
  
- ghasher: ${OBJECTS} ghasher.h 
+ ghasher: ${OBJECTS} 
  	${CC} -o ghasher ${OBJECTS} ${LDFLAGS} 
-@@ -23,9 +24,9 @@
+@@ -24,9 +25,9 @@ verify.o: ghasher.h
  .PHONY: install clean
  
  install: ghasher

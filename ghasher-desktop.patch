@@ -1,7 +1,7 @@
-diff -urN ghasher-1.1.1.orig/ghasher.desktop ghasher-1.1.1/ghasher.desktop
---- ghasher-1.1.1.orig/ghasher.desktop	2004-09-05 20:53:31.000000000 +0200
-+++ ghasher-1.1.1/ghasher.desktop	2004-09-05 21:34:09.000000000 +0200
-@@ -1,9 +1,13 @@
+diff -urNp -x '*.orig' ghasher-1.2.1.org/ghasher.desktop ghasher-1.2.1/ghasher.desktop
+--- ghasher-1.2.1.org/ghasher.desktop	2005-11-22 18:04:54.000000000 +0100
++++ ghasher-1.2.1/ghasher.desktop	2021-10-07 00:05:38.192266666 +0200
+@@ -1,10 +1,14 @@
  [Desktop Entry]
  Encoding=UTF-8
 -_Name=MD5 sum utility
@@ -19,3 +19,4 @@ diff -urN ghasher-1.1.1.orig/ghasher.desktop ghasher-1.1.1/ghasher.desktop
 +Icon=ghasher.xpm
 +Categories=Utility;GTK;
 +# vi: encoding=utf-8
+ 
